@@ -4,21 +4,20 @@
 }
 
 .container h1 {
-    font-family: 'montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5em;
     font-weight: bold;
     color: #605f60;
 }
 
 .form-layout {
-  margin-top: 10px;
-  text-align: left;
-  font-family: 'montserrat';
-
+    margin-top: 10px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container form label {
-    font-family: 'montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
     font-weight: bold;
     color: #605f60;
@@ -27,11 +26,72 @@
 .submit-botton {
     height: 40px;
     width: fit-content;
-    font-family: 'montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
     font-weight: bold;
     color: #605f60;
     background-color: #f2f2f2;
     border: none;
     border-radius: 5px;
+}
+
+/* Estilo base para as mensagens de alerta */
+.alert-message {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgb(236, 63, 51); /* Fundo vermelho */
+    color: white; /* Texto branco */
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    margin: 10px auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilo para o texto dentro do alerta */
+.alert-message span {
+    margin-right: 20px; /* Espaço à direita do texto */
+}
+
+/* Estilo para o botão de fechar */
+.alert-message .btn-close {
+    margin-left: 20px;
+    color: white; /* Cor do ícone de fechar */
+    opacity: 0.8; /* Transparência do ícone */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+/* Estilo para o botão de fechar ao passar o mouse */
+.alert-message .btn-close:hover {
+    opacity: 1; /* Remove a transparência ao passar o mouse */
+}
+
+/* Estilos específicos para mensagens de sucesso */
+.alert-message.success {
+    background-color: #28a745; /* Verde */
+}
+
+/* Estilos específicos para mensagens de erro */
+.alert-message.error {
+    background-color: #dc3545; /* Vermelho */
+}
+
+/* Estilos específicos para mensagens de aviso */
+.alert-message.warning {
+    background-color: #ffc107; /* Amarelo */
+    color: #000; /* Texto preto para melhor contraste */
+}
+
+/* Estilos específicos para mensagens de informação */
+.alert-message.info {
+    background-color: #17a2b8; /* Azul */
 }

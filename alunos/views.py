@@ -19,7 +19,7 @@ def criar_aluno(request):
             messages.error(request, 'Preencha todos os campos!')
             return redirect('criar_aluno')
         
-        if not idade.isdigit() or int(idade) <= 0:
+        if not idade.isdigit() or int(idade) <= 0 or int(idade) > 99:
             messages.error(request, 'Idade inválida!')
             return redirect('criar_aluno')
         
@@ -39,5 +39,3 @@ def criar_aluno(request):
         return redirect('criar_aluno')
         
     return render(request, 'criar_aluno.html')
-
-        
