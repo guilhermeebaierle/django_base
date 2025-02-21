@@ -7,4 +7,4 @@ urlpatterns = [
     path('criar_aluno/', views.criar_aluno, name='criar_aluno'),
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
