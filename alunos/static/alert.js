@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
-        document.querySelectorAll('.alert-message').forEach(function(alertMessage) {
-            alertMessage.style.transition = "opacity 0.5s ease-out"; // Transição suave
-            alertMessage.style.opacity = "0"; // Começa a desaparecer
+        document.querySelectorAll('.error, .sucesso').forEach(function(alertMessage) {
+            alertMessage.style.transition = "opacity 0.5s ease-out"; 
+            alertMessage.style.opacity = "0"; 
 
-            setTimeout(() => alertMessage.remove(), 500); // Remove após o fade-out
+            setTimeout(() => alertMessage.remove(), 500); 
         });
-    }, 5000); // 5 segundos
+    }, 5000); 
 });

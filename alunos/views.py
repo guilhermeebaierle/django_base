@@ -7,7 +7,9 @@ from .models import Aluno
 def criar_aluno(request):
     if request.method == 'GET':
         status = request.GET.get('status')
-        return render(request, 'criar_aluno.html', {'status': status})
+        alunos = Aluno.objects.all()
+        print(alunos)
+        return render(request, 'criar_aluno.html', {'status': status, 'alunos': alunos})
     
     elif request.method == 'POST':
 
@@ -38,4 +40,9 @@ def criar_aluno(request):
         messages.success(request, 'Aluno criado com sucesso!')
         return redirect('/alunos/criar_aluno/?status=0')
         
+    return redirect('/alunos/criar_aluno/')
+
+def excluir_aluno(request, id):
+    aluno = Aluno.objects.get(id=id)
+    aluno.delete()
     return redirect('/alunos/criar_aluno/')
