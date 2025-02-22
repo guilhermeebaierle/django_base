@@ -6,8 +6,8 @@ from .models import Aluno
 # Create your views here.
 def criar_aluno(request):
     if request.method == 'GET':
-
-        return render(request, 'criar_aluno.html')
+        status = request.GET.get('status')
+        return render(request, 'criar_aluno.html', {'status': status})
     
     elif request.method == 'POST':
 
@@ -16,16 +16,16 @@ def criar_aluno(request):
         email = request.POST.get('email')
 
         if not nome or not idade or not email:
-            messages.error(request, 'Preencha todos os campos!')
-            return redirect('criar_aluno')
+            # messages.error(request, 'Preencha todos os campos!')
+            return redirect('/alunos/criar_aluno/?status=1')
         
         if not idade.isdigit() or int(idade) <= 0 or int(idade) > 99:
             messages.error(request, 'Idade inválida!')
-            return redirect('criar_aluno')
+            return redirect('/alunos/criar_aluno/?status=2')
         
         if not email.endswith(('@gmail.com', '@outlook.com', '@hotmail.com')):
             messages.error(request, 'E-mail inválido!')
-            return redirect('criar_aluno')
+            return redirect('/alunos/criar_aluno/?status=3')
 
         aluno = Aluno(
             nome=nome.capitalize(),
@@ -36,6 +36,6 @@ def criar_aluno(request):
         aluno.save()
 
         messages.success(request, 'Aluno criado com sucesso!')
-        return redirect('criar_aluno')
+        return redirect('/alunos/criar_aluno/?status=0')
         
-    return render(request, 'criar_aluno.html')
+    return redirect('/alunos/criar_aluno/')

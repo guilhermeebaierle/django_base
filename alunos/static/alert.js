@@ -1,19 +1,10 @@
-// static/js/alert.js
 document.addEventListener('DOMContentLoaded', function() {
-    var alertMessages = document.querySelectorAll('.alert-message'); // Seleciona todas as mensagens
+    setTimeout(function() {
+        document.querySelectorAll('.alert-message').forEach(function(alertMessage) {
+            alertMessage.style.transition = "opacity 0.5s ease-out"; // Transição suave
+            alertMessage.style.opacity = "0"; // Começa a desaparecer
 
-    alertMessages.forEach(function(alertMessage) {
-        // Adiciona funcionalidade ao botão de fechar
-        var closeButton = alertMessage.querySelector('.btn-close');
-        if (closeButton) {
-            closeButton.addEventListener('click', function() {
-                alertMessage.remove(); // Remove a mensagem ao clicar no botão de fechar
-            });
-        }
-
-        // Remove a mensagem após 5 segundos
-        setTimeout(function() {
-            alertMessage.remove();
-        }, 5000); // 5000 milissegundos = 5 segundos
-    });
+            setTimeout(() => alertMessage.remove(), 500); // Remove após o fade-out
+        });
+    }, 5000); // 5 segundos
 });
